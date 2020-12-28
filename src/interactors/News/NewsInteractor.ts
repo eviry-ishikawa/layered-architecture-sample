@@ -1,5 +1,6 @@
+import { News, NewsBody } from '../../type/news'
 import BaseInteractor from '../BaseInteractor'
-import NewsMapper, { News, NewsBody } from './NewsMapper'
+import NewsMapper from './NewsMapper'
 
 const NEWS_SEARCH_PATH = 'https://hn.algolia.com/api/v1'
 

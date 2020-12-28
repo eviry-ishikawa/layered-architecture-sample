@@ -1,10 +1,11 @@
 // axiosをラップしたクラス、axios以外を使いたくなった時にはここを変えるだけでいい
 
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
 export default class BaseInteractor {
-  get(url: string) {
-    axios.get(url)
+  async get(url: string): Promise<AxiosResponse<any>> {
+    const res = await axios.get(url)
+    return res
   }
 
   post(url: string, param: object) {

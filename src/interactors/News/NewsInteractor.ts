@@ -1,4 +1,5 @@
 import BaseInteractor from '../BaseInteractor'
+import NewsMapper, { News, NewsBody } from './NewsMapper'
 
 const NEWS_SEARCH_PATH = 'https://hn.algolia.com/api/v1'
 
@@ -9,12 +10,15 @@ export default class NewsInteractor {
     this.interactor = new BaseInteractor()
   }
 
-  findAll = async () => {
+  findAll = async (): Promise<News | null> => {
     try {
       const res = await this.interactor.get(`${NEWS_SEARCH_PATH}/search`)
-      console.log(res)
+      const body: NewsBody = await res.data
+      console.log(NewsMapper.newsBodyToNews(body))
+      return NewsMapper.newsBodyToNews(body)
     } catch (error) {
       console.log(error)
+      return null
     }
   }
 

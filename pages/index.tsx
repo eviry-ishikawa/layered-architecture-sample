@@ -1,6 +1,5 @@
-import Link from 'next/link'
-import { Book } from '../src/components/Book'
+import { NewsList } from '../src/components/News/NewsList'
 
-const IndexPage = () => <Book />
+const IndexPage = () => <NewsList />
 
 export default IndexPage

@@ -15,7 +15,6 @@ export default class NewsInteractor {
     try {
       const res = await this.interactor.get(`${NEWS_SEARCH_PATH}/search`)
       const body: NewsBody = await res.data
-      console.log(NewsMapper.newsBodyToNews(body))
       return NewsMapper.newsBodyToNews(body)
     } catch (error) {
       console.log(error)
